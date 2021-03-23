@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class WeatherCityWidget extends StatelessWidget {
   final Map<String, dynamic> weatherData;
@@ -21,8 +22,20 @@ class WeatherCityWidget extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
               child: Center(
-                child: Text(
-                  weatherData['results']['temp'].toString(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.thermometerQuarter,
+                      size: 20,
+                    ),
+                    SizedBox(
+                      width: 2,
+                    ),
+                    Text(
+                      weatherData['results']['temp'].toString(),
+                    ),
+                  ],
                 ),
               ),
             ),

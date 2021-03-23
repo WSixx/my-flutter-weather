@@ -24,7 +24,9 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         flex: 4,
-                        child: WeatherTopWidget(),
+                        child: WeatherTopWidget(
+                          apiData: apiData,
+                        ),
                       ),
                       Expanded(
                         flex: 5,
