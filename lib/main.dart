@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
+import 'package:my_wather_app/utils/app_routes.dart';
+import 'package:my_wather_app/views/home_screen.dart';
 
 void main() async {
   await DotEnv.load(fileName: ".env");
@@ -16,7 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      routes: {
+        AppRoutes.HOME: (context) => HomeScreen(),
+      },
     );
   }
 }
