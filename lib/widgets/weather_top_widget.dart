@@ -22,7 +22,7 @@ class _WeatherTopWidgetState extends State<WeatherTopWidget>
       vsync: this,
       duration: Duration(seconds: 25),
     );
-    rotationController.repeat();
+    rotationController.repeat(reverse: true);
   }
 
   @override
