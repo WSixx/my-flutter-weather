@@ -11,14 +11,14 @@ class WeatherCityWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Row(
+        Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               width: 60.0,
               height: 60.0,
               decoration: BoxDecoration(
-                color: Colors.orange,
+                color: Colors.redAccent,
                 shape: BoxShape.circle,
               ),
               child: Center(
@@ -48,7 +48,7 @@ class WeatherCityWidget extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  weatherData['results']['temp'].toString(),
+                  weatherData['results']['sunrise'].toString(),
                 ),
               ),
             ),
@@ -61,7 +61,7 @@ class WeatherCityWidget extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  weatherData['results']['temp'].toString(),
+                  weatherData['results']['sunset'].toString(),
                 ),
               ),
             ),
