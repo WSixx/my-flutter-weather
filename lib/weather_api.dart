@@ -18,7 +18,6 @@ class WeatherApi {
   Future<Map<String, dynamic>> getWeatherResults() async {
     final response = await http.get(Uri.parse(_baseUrl));
     Map<String, dynamic> data = json.decode(response.body);
-    print(response.body);
     return Weather.fromMap(json.decode(response.body)).toMap();
   }
 }

@@ -8,66 +8,64 @@ class WeatherCityWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 60.0,
-              height: 60.0,
-              decoration: BoxDecoration(
-                color: Colors.redAccent,
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      FontAwesomeIcons.thermometerQuarter,
-                      size: 20,
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Text(
-                      weatherData['results']['temp'].toString(),
-                    ),
-                  ],
-                ),
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            width: 60.0,
+            height: 60.0,
+            decoration: BoxDecoration(
+              color: Colors.redAccent,
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    FontAwesomeIcons.thermometerQuarter,
+                    size: 20,
+                  ),
+                  SizedBox(
+                    width: 2,
+                  ),
+                  Text(
+                    weatherData['results']['temp'].toString(),
+                  ),
+                ],
               ),
             ),
-            Container(
-              width: 60.0,
-              height: 60.0,
-              decoration: BoxDecoration(
-                color: Colors.orange,
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Text(
-                  weatherData['results']['sunrise'].toString(),
-                ),
+          ),
+          Container(
+            width: 60.0,
+            height: 60.0,
+            decoration: BoxDecoration(
+              color: Colors.orange,
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                weatherData['results']['sunrise'].toString(),
               ),
             ),
-            Container(
-              width: 60.0,
-              height: 60.0,
-              decoration: BoxDecoration(
-                color: Colors.orange,
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Text(
-                  weatherData['results']['sunset'].toString(),
-                ),
+          ),
+          Container(
+            width: 60.0,
+            height: 60.0,
+            decoration: BoxDecoration(
+              color: Colors.orange,
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                weatherData['results']['sunset'].toString(),
               ),
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
