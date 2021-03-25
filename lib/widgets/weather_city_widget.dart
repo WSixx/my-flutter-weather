@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_wather_app/weather.dart';
 
 class WeatherCityWidget extends StatelessWidget {
-  final Map<String, dynamic> weatherData;
+  final Weather weatherData;
 
   WeatherCityWidget({this.weatherData});
 
@@ -32,7 +33,7 @@ class WeatherCityWidget extends StatelessWidget {
                     width: 2,
                   ),
                   Text(
-                    weatherData['results']['temp'].toString(),
+                    weatherData.results.temp.toString(),
                   ),
                 ],
               ),
@@ -47,7 +48,7 @@ class WeatherCityWidget extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                weatherData['results']['sunrise'].toString(),
+                weatherData.results.sunrise.toString(),
               ),
             ),
           ),
@@ -60,7 +61,7 @@ class WeatherCityWidget extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                weatherData['results']['sunset'].toString(),
+                weatherData.results.sunset.toString(),
               ),
             ),
           ),
