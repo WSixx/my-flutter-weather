@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_wather_app/condition_code.dart';
 import 'package:my_wather_app/day_night.dart';
 import 'package:my_wather_app/weather.dart';
 
@@ -8,6 +9,7 @@ class WeatherCityWidget extends StatelessWidget {
 
   WeatherCityWidget({this.weatherData});
   final DayNight dayNight = DayNight();
+  final ConditionCode conditionCode = ConditionCode();
 
   Color tempColor() {
     dayNight.getTempColor(weatherData.results.temp);
@@ -19,36 +21,94 @@ class WeatherCityWidget extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Center(
-            child: Container(
-              margin: EdgeInsets.all(7),
-              width: 80.0,
-              height: 80.0,
-              decoration: BoxDecoration(
-                color: tempColor(),
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      FontAwesomeIcons.thermometerQuarter,
-                      size: 20,
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Text(
-                      weatherData.results.temp.toString(),
-                    ),
-                  ],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                margin: EdgeInsets.all(7),
+                width: 80.0,
+                height: 80.0,
+                decoration: BoxDecoration(
+                  color: tempColor(),
+                  shape: BoxShape.circle,
+                ),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.thermometerQuarter,
+                        size: 20,
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Text(
+                        weatherData.results.temp.toString(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
+              Container(
+                margin: EdgeInsets.all(7),
+                width: 80.0,
+                height: 80.0,
+                decoration: BoxDecoration(
+                  color: tempColor(),
+                  shape: BoxShape.circle,
+                ),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.thermometerQuarter,
+                        size: 20,
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Text(
+                        weatherData.results.temp.toString(),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(7),
+                width: 80.0,
+                height: 80.0,
+                decoration: BoxDecoration(
+                  color: tempColor(),
+                  shape: BoxShape.circle,
+                ),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.thermometerQuarter,
+                        size: 20,
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Text(
+                        weatherData.results.temp.toString(),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
+          Text(conditionCode
+              .getConditionCode(weatherData.results.conditionCode)),
           Expanded(
             child: GridView.count(
+              mainAxisSpacing: 20,
               shrinkWrap: true,
               crossAxisCount: 3,
               padding: EdgeInsets.all(40),
@@ -61,10 +121,16 @@ class WeatherCityWidget extends StatelessWidget {
                       color: Colors.white54,
                       gradient: LinearGradient(
                           colors: [Colors.red[900], Colors.yellowAccent])),
-                  child: Center(
-                    child: Text(
-                      weatherData.results.sunrise.toString(),
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'SunRise',
+                      ),
+                      Text(
+                        weatherData.results.sunrise.toString(),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
@@ -79,10 +145,104 @@ class WeatherCityWidget extends StatelessWidget {
                       color: Colors.white54,
                       gradient: LinearGradient(
                           colors: [Colors.yellowAccent, Colors.red[900]])),
-                  child: Center(
-                    child: Text(
-                      weatherData.results.sunrise.toString(),
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Sunset',
+                      ),
+                      Text(
+                        weatherData.results.sunset.toString(),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white54,
+                      gradient: LinearGradient(
+                          colors: [Colors.red[900], Colors.yellowAccent])),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'SunRise',
+                      ),
+                      Text(
+                        weatherData.results.sunrise.toString(),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 2),
+                  width: 100,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white54,
+                      gradient: LinearGradient(
+                          colors: [Colors.yellowAccent, Colors.red[900]])),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Sunset',
+                      ),
+                      Text(
+                        weatherData.results.sunset.toString(),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 100,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white54,
+                      gradient: LinearGradient(
+                          colors: [Colors.red[900], Colors.yellowAccent])),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'SunRise',
+                      ),
+                      Text(
+                        weatherData.results.sunrise.toString(),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 2),
+                  width: 100,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white54,
+                      gradient: LinearGradient(
+                          colors: [Colors.yellowAccent, Colors.red[900]])),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Sunset',
+                      ),
+                      Text(
+                        weatherData.results.sunset.toString(),
+                      ),
+                    ],
                   ),
                 ),
               ],
